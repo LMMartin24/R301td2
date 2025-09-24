@@ -1,0 +1,27 @@
+body {
+    background: #111;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+canvas {
+    background: #222;
+    display: block;
+    margin: 1rem auto;
+    border: 2px solid white;
+}
+
+#stop {
+    width: 100px;
+    border: 2px solid darkgrey;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 10px;
+}
+
+#demo {
+    display: block;
+    width: calc(60vh/2); /* Largeur proportionnelle à la hauteur */
+    height: 60vh; /* Hauteur dynamique */
+}
