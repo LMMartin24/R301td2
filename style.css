@@ -22,6 +22,6 @@ canvas {
 
 #demo {
     display: block;
-    width: calc(60vh/2); /* Largeur proportionnelle à la hauteur */
+    width: calc(60wh/2); /* Largeur proportionnelle à la hauteur */
     height: 60vh; /* Hauteur dynamique */
 }

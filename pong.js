@@ -3,8 +3,8 @@ const ctx = canvas.getContext("2d");
 
 let x = 20;                      // position de la balle (axe des abscisses X)
 let y = 20;     // centrage vertical dans le canvas
-let speedX = 5; 
-let speedY=5;               // vitesse de la balle
+let speedX = 2; 
+let speedY=2;               // vitesse de la balle
 let leftPaddle = false;
 let rightPaddle = false;
 let coYPaddle=canvas.height-5;
@@ -50,11 +50,13 @@ function update() {
     }
     if (y<15){
         speedY*=-1;
-    }else if(y> canvas.height-15){
+    }else if((y> canvas.height-15)&& (x>= coXPaddle-25) && (x<=coXPaddle+25)){
         speedY*=-1;
-    }// reset quand la balle sort du cadre du canvas
+    }else if((y> canvas.height-15)&& !((x>= coXPaddle-25) && (x<=coXPaddle+25))){
+        speedX=0;
+        speedY=0;
+    } // reset quand la balle sort du cadre du canvas
 }
-
 function loop() {
     update();
     rafId = requestAnimationFrame(loop); // planifie la prochaine frame
