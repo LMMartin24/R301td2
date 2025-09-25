@@ -10,7 +10,7 @@ let rightPaddle = false;
 let coYPaddle=canvas.height-5;
 let coXPaddle=canvas.width/2;
 let rafId;                       // identifiant de la boucle d'animation
-let tailleBarre=40;
+let tailleBarre=50;
 
 
 function drawBall() {
@@ -85,6 +85,24 @@ gauche.addEventListener('mouseup', () => leftPaddle = false);
 
 droite.addEventListener('mouseleave', () => rightPaddle = false);
 gauche.addEventListener('mouseleave', () => leftPaddle = false);
+
+document.addEventListener('keydown', () => {
+    if (event.key === 'ArrowRight') {
+        rightPaddle = true;
+    }
+    if (event.key === 'ArrowLeft') {
+        leftPaddle = true;
+    }
+});
+
+document.addEventListener('keyup', (event) => {
+    if (event.key === 'ArrowRight') {
+        rightPaddle = false;
+    }
+    if (event.key === 'ArrowLeft') {
+        leftPaddle = false;
+    }
+});
 
 // démarrer l'animation
 loop();
