@@ -10,7 +10,7 @@ let rightPaddle = false;
 let coYPaddle=canvas.height-5;
 let coXPaddle=canvas.width/2;
 let rafId;                       // identifiant de la boucle d'animation
-
+let tailleBarre=40;
 
 
 function drawBall() {
@@ -25,7 +25,7 @@ function drawRectangle() {
     ctx.fillStyle = "orange";
     //dessin de la balle
     ctx.beginPath();
-    ctx.fillRect(coXPaddle, coYPaddle, 25, 2);
+    ctx.fillRect(coXPaddle, coYPaddle, tailleBarre, 2);
     ctx.fill();
 }
 
@@ -33,7 +33,7 @@ function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height) // efface l'écran
     drawBall();
     drawRectangle();
-    if (rightPaddle && coXPaddle < canvas.width - 25) {
+    if (rightPaddle && coXPaddle < canvas.width - tailleBarre) {
         coXPaddle += 5; // Déplace la barre vers la droite
     }
     if (leftPaddle && coXPaddle > 0) {
@@ -48,14 +48,21 @@ function update() {
     }else if (x < 15) {
         speedX *= -1;
     }
-    if (y<15){
+    if (y<10){
         speedY*=-1;
-    }else if((y> canvas.height-15)&& (x>= coXPaddle-25) && (x<=coXPaddle+25)){
-        speedY*=-1;
-    }else if((y> canvas.height-15)&& !((x>= coXPaddle-25) && (x<=coXPaddle+25))){
-        speedX=0;
-        speedY=0;
-    } // reset quand la balle sort du cadre du canvas
+    }
+    //renvoi de la balle si elle touche la raquette
+    if (y +5 > coYPaddle - 5 && x > coXPaddle && x < coXPaddle + tailleBarre) {
+        //random de la vitesse en Y pour éviter les trajectoires trop prévisibles
+        let randomSpeedY = Math.random() * 10;
+        speedY *= -1;
+        speedY -=(randomSpeedY/40)+1;
+    }
+    //arrete la balle si elle touche le bas du canvas
+    if (y > canvas.height-11) {
+        speedY = 0;
+        speedX = 0;
+    }   
 }
 function loop() {
     update();

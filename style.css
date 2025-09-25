@@ -1,27 +1,60 @@
+
 body {
-    background: #111;
-    color: white;
-    font-family: sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    color: #fff;
+    font-family: 'Press Start 2P', 'VT323', monospace, sans-serif;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
+
 
 canvas {
-    background: #222;
+    background: radial-gradient(circle at 50% 40%, #333 60%, #111 100%);
     display: block;
-    margin: 1rem auto;
-    border: 2px solid white;
+    margin: 2rem auto 1rem auto;
+    border: 3px solid #fff;
+    /* Effet lumineux autour du canvas fait par ia*/
+    box-shadow: 0 0 32px 4px #ff9800, 0 0 0 8px #fff2;
+    border-radius: 16px;
+    transition: box-shadow 0.3s;
+    max-width: 95vw;
 }
 
-#stop {
-    width: 100px;
-    border: 2px solid darkgrey;
-    border-radius: 8px;
-    margin: 20px;
-    padding: 10px;
+
+.btnstyle, #stop {
+    width: 120px;
+    border: none;
+    border-radius: 12px;
+    margin: 24px auto;
+    padding: 12px 0;
+    /* Effet de dégradé orange fait par ia */
+    background: linear-gradient(90deg, #ff9800 0%, #ffc107 100%);
+    color: #222;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #0006;
+    cursor: pointer;
+    letter-spacing: 1px;
+    /* Effet de transition fait par ia */
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
+
+#stop:hover {
+    /* Effet lumineux au survol du bouton fait par ia */
+    background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px #ff9800aa;
+}
+
 
 #demo {
     display: block;
-    width: calc(60wh/2); /* Largeur proportionnelle à la hauteur */
-    height: 60vh; /* Hauteur dynamique */
+    margin: 0 auto;
+    outline: none;
 }
