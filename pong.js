@@ -86,7 +86,7 @@ function update() {
         speedY *= -1;
         console.log('speedY avant modif : '+speedY);
         if (Math.abs(speedY) < 7) { 
-            speedY -=(randomSpeed);
+            speedY -=(randomSpeed)*3;
             if (randomSpeed<0.05 || randomSpeed>0.15){ 
                 speedX += randomSpeed*3;
             } else {
