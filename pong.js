@@ -143,6 +143,23 @@ gauche.addEventListener('mousedown', () => {
 });
 
 
+droite.addEventListener('touchstart', () => {
+        rightPaddle = true;
+        if (!gameStarted){
+        gameStarted = true;
+        startScoreCounter();
+        let randomSpeedinit  = Math.random() * 0.25 + 0.5; // entre 0.5 et 0.75
+        let randomGaucheDroiteinit = Math.random() < 0.5 ? 1 : 2;
+        if (randomGaucheDroiteinit === 1) {
+            speedX = -1 + randomSpeedinit;
+            speedY = -1 ;
+        }else {
+            speedX = (-1 + randomSpeedinit)*(-1);
+            speedY = -1 ;
+        }
+    }
+});
+
 gauche.addEventListener('touchstart', () => {
         leftPaddle = true;
         if (!gameStarted){
@@ -160,33 +177,16 @@ gauche.addEventListener('touchstart', () => {
     }
 });
 
-droite.addEventListener('touchstart', () => {
-        leftPaddle = true;
-        if (!gameStarted){
-        gameStarted = true;
-        startScoreCounter();
-        let randomSpeedinit  = Math.random() * 0.25 + 0.5; // entre 0.5 et 0.75
-        let randomGaucheDroiteinit = Math.random() < 0.5 ? 1 : 2;
-        if (randomGaucheDroiteinit === 1) {
-            speedX = -1 + randomSpeedinit;
-            speedY = -1 ;
-        }else {
-            speedX = (-1 + randomSpeedinit)*(-1);
-            speedY = -1 ;
-        }
-    }
-});
+
 
 droite.addEventListener('mouseup', () => rightPaddle = false);
 gauche.addEventListener('mouseup', () => leftPaddle = false);
 
+droite.addEventListener('mouseleave', () => rightPaddle = false);
+gauche.addEventListener('mouseleave', () => leftPaddle = false);
 
 droite.addEventListener('touchend', () => rightPaddle = false);
 gauche.addEventListener('touchend', () => leftPaddle = false);
-
-
-droite.addEventListener('mouseleave', () => rightPaddle = false);
-gauche.addEventListener('mouseleave', () => leftPaddle = false);
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
