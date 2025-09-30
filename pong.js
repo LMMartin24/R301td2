@@ -80,7 +80,7 @@ function update() {
         speedY*=-1;
     }
     //renvoi de la balle si elle touche la raquette
-    if (y +5 > coYPaddle - 5 && x > coXPaddle && x < coXPaddle + tailleBarre) {
+    if (y +5 > coYPaddle - 4 && x > coXPaddle && x < coXPaddle + tailleBarre) {
         //random de la vitesse en Y pour éviter les trajectoires trop prévisibles
         let randomSpeed = Math.random()/5; // entre 0 et 0.2
         speedY *= -1;
