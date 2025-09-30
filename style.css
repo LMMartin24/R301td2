@@ -18,11 +18,14 @@ canvas {
     display: block;
     margin: 2rem auto 1rem auto;
     border: 3px solid #fff;
-    /* Effet lumineux autour du canvas fait par ia*/
+    /* Effet lumineux autour du canvas */
     box-shadow: 0 0 32px 4px #ff9800, 0 0 0 8px #fff2;
     border-radius: 16px;
     transition: box-shadow 0.3s;
-    max-width: 95vw;
+
+    height: 450px;
+    width: 300px;
+
 }
 
 
